@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact</title>
+    <link rel="stylesheet" href="styles/styles.css">
+    <input id="search" placeholder="search" autocomplete="off">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+</head>
+<body>
+
+    <div class="top-section">
+        <!-- Add your content for the top section here -->
+    </div>
+
+    <nav>
+        <a href="index.html" class="logo">
+          <img src="images/logo.png" alt="Logo">
+        </a>
+        <div class="hamburger-menu">
+          <!-- Checkbox to toggle the menu -->
+          <input id="menu__toggle" type="checkbox" />
+          <!-- Hamburger button -->
+          <label class="menu__btn" for="menu__toggle">
+            <span></span>
+          </label>
+          <!-- Close button (X) -->
+          <label class="menu__close" for="menu__toggle">X</label>
+          <!-- Side navigation menu -->
+          <ul class="menu__box">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="contact.html">Contact</a></li>
+          </ul>
+        </div>
+        <!-- Desktop navigation -->
+        <ul class="desktop-menu">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="about.html">About</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+
+        
+
+        
+      </nav>
+
+      <br>
+      <br>
+    <h1>Contact</h1>
+      <br>
+    <h2>Where you can reach me!</h2>
+    <br>
+    <br>
+    <img src="images/contact.jpeg" alt="Contact me">
+    <br>
+    <br>
+      <h3>The best places to get ahold of me</h3>
+      <br>
+      <h4>Email:</h4> serenastecks@gmail.com
+        <br>
+        <br>
+          <h4>Text:</h4>224-266-8666
+    <br>
+    <br>
+        <h3>Socials:</h3>
+        <h4>
+          <a href="https://www.instagram.com/serenastecksdesigns?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==" class="fa fa-instagram"></a>
+        </h4>
+          
+    <br>
+    <h2 style="color: #B1408E;">Contact form</h2>
+    <br>
+    <h4>The same contact form on home page</h4>
+    <form>
+        <label>First name</label>
+        <br>
+        <input type="text">
+        <br>
+        <br>
+        <label for="Email">Email</label>
+        <br>
+        <input type="email">
+        <br>
+        <br>
+        <label for="message">Message</label> 
+        <br>
+        <textarea></textarea>
+        <br>
+        <br>
+        <input type="submit" value="Submit" class="input">
+        <br>
+    </form>
+
+
+    <style>
+
+        .back-to-top {
+          padding-left: 10px;
+          border: none;
+          text-decoration: underline;
+          background: #dd6ec9;
+          color: #3d1631;
+          cursor: pointer;
+          opacity: 80%;
+          
+        }
+      
+        .section {
+          height: 600px;
+          padding: 20px;
+          border: 1px solid #ccc;
+          margin: 20px;
+        }
+      </style>
+      
+      
+      
+      <a href="#" class="back-to-top">Top</a>
+      
+      
+      
+      
+      
+      
+        <script>
+          console.clear();
+      
+          function ease({
+            startValue = 0,
+            endValue = 1,
+            durationMs = 200,
+            onStep,
+            onComplete = () => {},
+          }) {
+            const raf = window.requestAnimationFrame || (func => window.setTimeout(func, 16));
+            const stepCount = durationMs / 16;
+            const valueIncrement = (endValue - startValue) / stepCount;
+            const sinValueIncrement = Math.PI / stepCount;
+            let currentValue = startValue;
+            let currentSinValue = 0;
+      
+            function step() {
+              currentSinValue += sinValueIncrement;
+              currentValue += valueIncrement * (Math.sin(currentSinValue) ** 2) * 2;
+      
+              if (currentSinValue < Math.PI) {
+                onStep(currentValue);
+                raf(step);
+              } else {
+                onStep(endValue);
+                onComplete();
+              }
+            }
+      
+            raf(step);
+          }
+      
+          document.querySelectorAll('.link-to-section').forEach(el => el.addEventListener('click', e => {
+            const targetId = e.target.getAttribute('href');
+            const targetEl = document.querySelector(targetId);
+            const targetPos = targetEl.getBoundingClientRect().top + window.scrollY;
+      
+            ease({
+              startValue: window.scrollY,
+              endValue: targetPos,
+              durationMs: 400,
+              onStep: value => window.scroll(0, value),
+            });
+          }));
+      
+          document.querySelectorAll('.back-to-top').forEach(el => el.addEventListener('click', () => {
+            ease({
+              startValue: window.scrollY,
+              endValue: 0,
+              onStep: value => window.scroll(0, value),
+              onComplete: () => {
+                document.querySelector('#search').focus();
+                document.location.hash = '';
+              }
+            });
+          }));
+        </script>
+
+        <br>
+        <br>
+        <br>
+        <br>
+
+    <footer>
+        © 2025 Serena Stecks Designs. All Rights Reserved.
+
+        <a href="https://www.instagram.com/serenastecksdesigns?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==" class="fa fa-instagram"></a>
+    </footer>
+</body>
+</html>

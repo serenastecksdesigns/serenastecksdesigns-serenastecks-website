@@ -1,0 +1,780 @@
+
+.top-section {
+    height: 20px; /* Height of the top section */
+    width: 100%; /* Full width */
+    background-color: #f9d3e4; /* Light pink background */
+    opacity: 0.7; /* Transparency */
+    position: fixed; /* Fixed at the top */
+    top: 0; /* Sticks to the top of the viewport */
+    left: 0;
+    z-index: 100; /* Ensures it's above other elements */
+    padding-top: 10px; /* Optional: Add padding if needed */
+}
+
+.logo {
+    margin-top: 20px; /* Adds space below the top section */
+    align-items: center;
+}
+
+
+
+
+
+
+
+/* General Body Styling */
+body {
+    font-family: Arial, sans-serif;
+    text-align: center;
+    margin: 0;
+    padding: 10px; /* Adds 20px of space on all sides */
+}
+
+/* Image Styling */
+img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+    margin: 0 auto;
+}
+
+
+
+/* Flexbox Layout for Navigation */
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+    background-color: rgba(249, 211, 228, 0.8);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    width: 100px;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+/* Logo Styling */
+.logo img {
+    width: 100px;
+    height: auto;
+}
+
+/* Desktop Menu Styling */
+ul.desktop-menu {
+    display: flex;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+/* Menu Item Styling */
+li {
+    margin-right: 20px;
+}
+
+li a {
+    display: block;
+    color: #b1408e;
+    padding: 14px 16px;
+    text-decoration: none;
+}
+
+li a:hover {
+    background-color: #faa5ea;
+}
+
+.active {
+    background-color: #04aa6d;
+}
+
+/* Hamburger Menu (Mobile) */
+
+#menu__toggle {
+    display: none;
+    }
+
+
+    
+    
+
+.menu__btn {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    width: 30px;
+    height: 25px;
+    cursor: pointer;
+    z-index: 1;
+    transform: translateX(-48px); /* Moves the hamburger menu 48px to the left */
+    position: relative; /* Required for `z-index` to work */
+    z-index: 10; /* Higher value brings it to the top */
+}
+
+
+.menu__btn > span,
+.menu__btn > span::before,
+.menu__btn > span::after {
+    display: block;
+    position: absolute;
+    width: 100%;
+    height: 3px;
+    background-color: #b1408e;
+    transition: all 0.3s ease;
+}
+
+.menu__btn > span::before {
+    content: '';
+    top: -8px;
+}
+
+.menu__btn > span::after {
+    content: '';
+    top: 8px;
+}
+
+#menu__toggle:checked ~ .menu__btn > span {
+    transform: rotate(45deg);
+}
+
+#menu__toggle:checked ~ .menu__btn > span::before {
+    top: 0;
+    transform: rotate(0);
+}
+
+#menu__toggle:checked ~ .menu__btn > span::after {
+    top: 0;
+    transform: rotate(90deg);
+    
+}
+
+/* Side Navigation Menu */
+.menu__box {
+    position: fixed;
+    top: 0;
+    left: -100%;
+    width: 250px;
+    height: 100%;
+    background-color: #eceff1;
+    box-shadow: 1px 0px 6px rgba(0, 0, 0, 0.2);
+    transition: all 0.3s ease;
+    list-style: none;
+    padding-top: 60px;
+    visibility: hidden;
+}
+
+.menu__box li {
+    padding: 12px 24px;
+    text-align: center;
+}
+
+.menu__box li a {
+    color: #333;
+    font-size: 18px;
+    text-decoration: none;
+}
+
+.menu__box li a:hover {
+    background-color: #f9d3e4;
+}
+
+#menu__toggle:checked ~ .menu__box {
+    left: 0;
+    visibility: visible;
+}
+
+.menu__close {
+    display: none;
+    font-size: 30px;
+    color: #b1408e;
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    cursor: pointer;
+    opacity: 0%;
+}
+
+
+
+#menu__toggle:checked ~ .menu__close {
+    display: block;
+}
+
+/* Ensure the logo behaves as a link */
+.logo img {
+    width: 100px;      /* Adjust size as needed */
+    height: auto;
+    cursor: pointer;  /* Makes it clear it's clickable */
+    display: inline-block; /* Ensure it's displayed inline */
+  }
+  
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    /* Hide the desktop menu */
+    ul.desktop-menu {
+        display: none;
+    }
+
+    /* Show hamburger menu */
+    .hamburger-menu {
+        display: block;
+    }
+
+    /* Menu box adjustments */
+    .menu__box {
+        left: -100%;
+        width: 100%;
+        visibility: hidden;
+    }
+
+    /* Form adjustments for small screens */
+    form {
+        padding: 10px;
+    }
+
+    .input {
+        width: 100%;
+        margin-top: 10px;
+        padding: 10px;
+        border: none;
+        background: #B1408E;
+        color: #F9D3E4;
+        border-radius: 5px;
+        cursor: pointer;
+    }
+}
+
+@media (min-width: 769px) {
+    /* Show the desktop menu */
+    .desktop-menu {
+        display: flex;
+    }
+
+    /* Hide the hamburger menu */
+    .hamburger-menu {
+        display: none;
+    }
+
+    /* Form layout */
+    form {
+        display: flex;
+        flex-direction: column;
+        width: 60%;
+        margin: 20px auto;
+    }
+
+    .input {
+        width: auto;
+        margin-top: 10px;
+    }
+}
+
+/* Styling for content text (Justified) */
+p {
+    text-align: justify;
+    line-height: 1.5;
+}
+
+/* Form and Inputs */
+form input[type="text"],
+form input[type="email"],
+form textarea {
+    width: 100%;
+    padding: 8px;
+    margin: 10px 0;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+}
+
+/* Button Styling (for both large and small screens) */
+.input {
+    width: 100%;                /* Ensure button is always full width */
+    margin-top: 10px;
+    padding: 10px;
+    border: none;
+    background: #B1408E;
+    color: #F9D3E4;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  /* For small screens */
+  @media (max-width: 768px) {
+    .input {
+      width: 100%;               /* Full width on small screens */
+    }
+  }
+  
+  /* For large screens */
+  @media (min-width: 769px) {
+    form {
+      display: flex;
+      flex-direction: column;
+      width: 60%; /* Form width is 60% */
+      margin: 20px auto;
+    }
+  
+    .input {
+      width: 100%; /* Button is also full width on large screens */
+    }
+  }
+  
+
+/* Adjusting Heading and Text */
+h1, h2, h3 {
+    color: #B1408E;
+}
+
+h2 {
+    color: #F69AE5;
+}
+
+/* Form Background and Hover */
+form {
+    background-color: #FAA5EA;
+    padding: 20px;
+}
+
+.input:hover {
+    background: #F9D3E4;
+    color: #B1408E;
+}
+
+/* General Reset to Prevent Unexpected Layout Issues */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html, body {
+    width: 100%;
+    height: 100%;
+    overflow-x: hidden; /* Prevent horizontal scroll */
+}
+
+/* Ensure images are responsive */
+img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+    margin: 0 auto;
+}
+
+/* Navigation Styles */
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+    background-color: rgba(249, 211, 228, 0.8);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    width: 100%;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+ul.desktop-menu {
+    display: flex;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+li {
+    margin-right: 20px;
+}
+
+li a {
+    display: block;
+    color: #b1408e;
+    padding: 14px 16px;
+    text-decoration: none;
+}
+
+li a:hover {
+    background-color: #faa5ea;
+}
+
+.menu__btn {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    width: 30px;
+    height: 25px;
+    cursor: pointer;
+    z-index: 1001; /* Ensure it’s above other content */
+}
+
+/* Hamburger Menu Button */
+.menu__btn > span,
+.menu__btn > span::before,
+.menu__btn > span::after {
+    display: block;
+    position: absolute;
+    width: 100%;
+    height: 3px;
+    background-color: #b1408e;
+    transition: all 0.3s ease;
+}
+
+.menu__btn > span::before {
+    content: '';
+    top: -8px;
+}
+
+.menu__btn > span::after {
+    content: '';
+    top: 8px;
+}
+
+#menu__toggle:checked ~ .menu__btn > span {
+    transform: rotate(45deg);
+}
+
+#menu__toggle:checked ~ .menu__btn > span::before {
+    top: 0;
+    transform: rotate(0);
+}
+
+#menu__toggle:checked ~ .menu__btn > span::after {
+    top: 0;
+    transform: rotate(90deg);
+}
+
+/* Side Navigation Menu */
+.menu__box {
+    position: fixed;
+    top: 0;
+    left: -100%;
+    width: 100%; /* Full screen width */
+    height: 100%;
+    background-color: #eceff1;
+    box-shadow: 1px 0px 6px rgba(0, 0, 0, 0.2);
+    transition: all 0.3s ease;
+    list-style: none;
+    padding-top: 60px;
+    visibility: hidden;
+    overflow: hidden; /* Prevent overflow */
+}
+
+/* Menu Links */
+.menu__box li {
+    padding: 12px 24px;
+    text-align: center;
+}
+
+.menu__box li a {
+    color: #333;
+    font-size: 18px;
+    text-decoration: none;
+}
+
+.menu__box li a:hover {
+    background-color: #f9d3e4;
+}
+
+/* When the menu is toggled */
+#menu__toggle:checked ~ .menu__box {
+    left: 0;
+    visibility: visible;
+}
+
+
+
+#menu__toggle:checked ~ .menu__close {
+    display: block;
+}
+
+/* Mobile Media Queries */
+@media (max-width: 768px) {
+    /* Hide desktop menu */
+    ul.desktop-menu {
+        display: none;
+    }
+
+    /* Show hamburger menu */
+    .hamburger-menu {
+        display: block;
+        z-index: 1001; /* Ensure it’s above other content */
+    }
+
+    /* Mobile-specific side menu adjustments */
+    .menu__box {
+        left: -100%;
+        width: 100%; /* Full screen width */
+        height: 100%; /* Full screen height */
+        visibility: hidden;
+    }
+
+    /* Open side menu when hamburger is toggled */
+    #menu__toggle:checked ~ .menu__box {
+        left: 0;
+        visibility: visible;
+    }
+
+    /* Ensure the side menu takes full height of the screen */
+    .menu__box li {
+        padding: 20px 24px;
+        font-size: 18px;
+    }
+
+ 
+
+    #menu__toggle:checked ~ .menu__close {
+        display: block;
+    }
+
+    /* Avoid any unwanted horizontal scrolling */
+    body {
+        overflow-x: hidden; /* Ensure no horizontal scroll */
+    }
+}
+
+
+.button {
+    text-decoration: none; /* Remove underline */
+    background-color: #f9d3e4; /* Background color */
+    color: #000; /* Text color */
+    padding: 10px 20px; /* Button padding */
+    border-radius: 5px; /* Rounded corners */
+    border: 2px solid #b1408e; /* Optional border */
+    font-size: 16px; /* Font size */
+    cursor: pointer; /* Pointer cursor for hover */
+    transition: background-color 0.3s ease; /* Smooth hover effect */
+}
+
+.button:hover {
+    background-color: #b1408e; /* Change background color on hover */
+    color: #fff; /* Change text color on hover */
+}
+
+
+
+@import url(https://fonts.googleapis.com/css?family=Source+Sans+Pro:400italic);
+* { margin: 0; }
+body { 
+  margin: 0;
+  font-family: Source Sans Pro, sans-serif; 
+} 
+dl#simple-gallery { 
+  position: relative;
+  font-size: 0;
+  padding: 3rem;
+  padding-bottom: 8rem;
+}
+dl#simple-gallery dt{
+  width: 12.5%;
+  min-width: 50px;
+  cursor: pointer;
+}
+dl#simple-gallery dt img { 
+  width: 100%;
+  height: auto;
+}
+dl#simple-gallery dt:hover+dd, dl#simple-gallery dt:focus+dd { 
+  opacity:1;
+}
+dl#simple-gallery dd { 
+  position: absolute;
+  top: 3rem;
+  left: 22%;
+  opacity: 0;
+  transition: .7s opacity;
+  text-align: center;
+  font-size: 1.4rem;
+  font-style: italic;
+  color: #b1408e;
+  padding-left: 0;
+  width: 40%;
+}
+dl#simple-gallery dd img{
+  width: 100%;
+  height: auto;
+  box-shadow:0 0 8px rgba(0,0,0,0.3);
+  display:block;
+  margin-bottom: 1rem;
+}
+
+/* Adjusting the Simple Gallery Layout */
+dl#simple-gallery {
+    display: grid;                  /* Use grid layout */
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); /* Responsive grid */
+    gap: 20px;                       /* Space between items */
+    max-width: 80%;                  /* Limit the gallery width */
+    margin: 0 auto;                  /* Center the gallery */
+    padding: 3rem 2rem;
+  }
+  
+  /* Styling for Gallery Items */
+  dl#simple-gallery dt {
+    position: relative;
+    width: 100%;
+    cursor: pointer;
+  }
+  
+  dl#simple-gallery dt img {
+    width: 100%;
+    height: auto;
+    transition: transform 0.3s ease-in-out; /* Smooth hover effect */
+  }
+  
+  dl#simple-gallery dt:hover img {
+    transform: scale(1.05);  /* Slight zoom on hover */
+  }
+  
+  /* Styling for the Expanded Image (dd) */
+  dl#simple-gallery dd {
+    position: absolute;
+    top: 100%;                  /* Position below the thumbnail */
+    left: 50%;
+    transform: translateX(-50%); /* Center the expanded image */
+    opacity: 0;
+    transition: opacity 0.7s ease;
+    text-align: center;
+    font-size: 1.4rem;
+    font-style: italic;
+    color: #b1408e;
+    width: 100%;                /* Expanded image takes full width */
+    max-width: 500px;           /* Limit max width */
+    padding: 10px;
+    box-shadow: 0 0 8px rgba(0, 0, 0, 0.3);
+  }
+  
+  dl#simple-gallery dd img {
+    width: 100%;
+    height: auto;
+  }
+  
+  dl#simple-gallery dt:hover + dd, dl#simple-gallery dt:focus + dd {
+    opacity: 1;
+  }
+
+  /* Semi-transparent solid background for the gallery */
+dl#simple-gallery {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 20px;
+    max-width: 80%;
+    margin: 0 auto;
+    padding: 3rem 2rem;
+    background-color: rgba(182, 64, 142, 0.6);  /* Purple with 60% opacity */
+  }
+  
+ 
+
+  #search {
+    display: block;
+    opacity: 0%;
+  }
+
+
+  
+  
+  .back-to-top {
+    padding-left: 10px;
+    border: none;
+    text-decoration: none !important; /* Use !important to override any conflicting styles */
+    background: none;
+    cursor: pointer;
+    background-color: #B1408E;
+    color: #F69AE5;
+     
+}
+
+a.back-to-top {
+    text-decoration: none !important;
+}
+
+a {
+    text-decoration: none;
+}
+
+.back-to-top {
+    padding-left: 10px;
+    border: none;
+    text-decoration: none !important;
+    background-color: #B1408E;
+    color: #B1408E;
+    border-radius: 25px;
+    padding: 10px 20px;
+    position: fixed;
+    bottom: 40px; /* Increase the bottom margin for more space */
+    right: 50%; /* Center horizontally */
+    transform: translateX(50%); /* Offset the centering to fully position it at the center */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: opacity 0.3s ease-in-out;
+}
+
+.back-to-top.show {
+    display: block;
+    opacity: 1;
+}
+
+.container {
+    display: flex;
+    flex-direction: column; /* Stacks elements vertically */
+    width: 100%;
+}
+
+.navbar {
+    color: #f9d3e4;
+    padding: 10px;
+    opacity: 70%;
+    position: fixed;
+}
+
+.search-container {
+    margin-top: 10px; /* Adds space between the navbar and the search bar */
+    padding: 10px;
+}
+
+.search-bar {
+    width: 100%; /* Makes the search bar take the full width */
+    padding: 10px;
+    border-radius: 5px;
+}
+
+.search-container {
+    margin-top: 10px;
+    padding: 10px;
+}
+
+.search-bar {
+    width: 200px; /* Adjust width to make it smaller */
+    padding: 8px; /* Adjust padding as needed */
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    float: right;
+}
+
+.back-to-top {
+    position: fixed;
+    bottom: 50px;
+    right: 60px;
+    z-index: 100;
+}
+
+.search-container {
+    margin-top: 20px; /* Add more spacing between elements */
+}
+
+footer {
+    padding: 25px;
+    background-color: rgba(252, 136, 188, 0.7); /* 70% opacity background */
+    color: #000; /* Fully opaque text color */
+    font-size: 16px;
+}
+
+
+
+.fa {
+    padding: 20px;
+    font-size: 30px;
+    width: 30px;
+    text-align: center;
+    text-decoration: none;
+    border-radius: 50%;
+  }

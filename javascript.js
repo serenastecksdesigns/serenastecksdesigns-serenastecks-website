@@ -1,0 +1,114 @@
+
+
+
+console.clear();
+
+/*  -------------------------  */
+/*  --  The ease function  --  */
+/*  -------------------------  */
+
+function ease({
+  startValue = 0,
+  endValue = 1,
+  durationMs = 200,
+  onStep,
+  onComplete = () => {},
+}) {
+  const raf = window.requestAnimationFrame || (func => window.setTimeout(func, 16));
+  
+  const stepCount = durationMs / 16;
+  const valueIncrement = (endValue - startValue) / stepCount;
+  const sinValueIncrement = Math.PI / stepCount;
+  let currentValue = startValue;
+  let currentSinValue = 0;
+  
+  function step() {
+    currentSinValue += sinValueIncrement;
+    currentValue += valueIncrement * (Math.sin(currentSinValue) ** 2) * 2;
+    
+    if (currentSinValue < Math.PI) {
+      onStep(currentValue);
+      raf(step);
+    } else {
+      onStep(endValue);
+      onComplete();
+    }
+  }
+
+  raf(step);
+}
+
+
+/*  ---------------------------  */
+/*  --  Some usage examples  --  */
+/*  ---------------------------  */
+
+// This will scroll from the current position down to the element with a particular ID
+document.querySelectorAll('.link-to-section').forEach(el => el.addEventListener('click', e => {
+  // Side-note: NodeList.forEach() isn't supported everywhere
+  // https://developer.mozilla.org/en-US/docs/Web/API/NodeList/forEach
+  const targetId = e.target.getAttribute('href');
+  const targetEl = document.querySelector(targetId);
+  const targetPos = targetEl.getBoundingClientRect().top + window.scrollY;
+  
+  ease({
+    startValue: window.scrollY,
+    endValue: targetPos,
+    durationMs: 400,
+    onStep: value => window.scroll(0, value),
+  });
+}));
+
+// This will smoothly scroll from the current window position to the top.
+// When at the top, it will focus the search box and remove the hash from the URL
+document.querySelectorAll('.back-to-top').forEach(el => el.addEventListener('click', () => {
+  ease({
+    startValue: window.scrollY,
+    endValue: 0,
+    onStep: value => window.scroll(0, value),
+    onComplete: () => {
+      // You wouldn't want to do these things before scrolling was finsihed,
+      // they would snap the scroll immediately to the top of the page
+      document.querySelector('#search').focus();
+      document.location.hash = '';
+    }
+  });
+}));
+
+document.querySelectorAll('.link-to-section').forEach(el => el.addEventListener('click', e => {
+    const targetId = e.target.getAttribute('href');
+    const targetEl = document.querySelector(targetId);
+    const targetPos = targetEl.getBoundingClientRect().top + window.scrollY;
+  
+    ease({
+      startValue: window.scrollY,
+      endValue: targetPos,
+      durationMs: 400,
+      onStep: value => window.scroll(0, value),
+    });
+  }));
+
+  
+  document.querySelectorAll('.back-to-top').forEach(el => el.addEventListener('click', () => {
+    ease({
+      startValue: window.scrollY,
+      endValue: 0,
+      onStep: value => window.scroll(0, value),
+      onComplete: () => {
+        document.querySelector('#search').focus();
+        document.location.hash = '';
+      }
+    });
+  }));
+
+  document.querySelector('.back-to-top').addEventListener('click', function () {
+    document.activeElement.blur(); // Remove focus from the active element (search bar)
+    window.scrollTo({ top: 0, behavior: 'smooth' }); // Scroll to the top smoothly
+});
+
+
+
+  
+
+  
+
