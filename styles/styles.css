@@ -551,6 +551,18 @@ li a:hover {
     color: #fff; /* Change text color on hover */
 }
 
+.cap img {
+  width: 60px;
+  height: auto;
+  display: block;
+}
+
+.graduation-photo {
+  width: 300px; /* a bit bigger */
+  height: auto;
+  display: block;
+  margin: 20px auto;
+}
 
 
 @import url(https://fonts.googleapis.com/css?family=Source+Sans+Pro:400italic);
@@ -670,6 +682,47 @@ dl#simple-gallery {
     opacity: 0%;
   }
 
+
+
+.carousel {
+  position: relative;
+  width: 500px;
+  max-width: 90%;
+  margin: 40px auto;
+  overflow: hidden;
+}
+
+.carousel-images {
+  display: flex;
+  transition: transform 0.5s ease;
+}
+
+.carousel-images img {
+  width: 100%;
+  height: auto;
+  flex-shrink: 0;
+}
+
+.prev, .next {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 30px;
+  background-color: rgba(0,0,0,0.5);
+  color: white;
+  border: none;
+  padding: 10px;
+  cursor: pointer;
+  z-index: 10;
+}
+
+.prev { left: 10px; }
+.next { right: 10px; }
+
+
+.prev, .next {
+  z-index: 1000;  /* ensure arrows are on top */
+}
 
   
   
