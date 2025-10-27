@@ -112,3 +112,43 @@ document.querySelectorAll('.link-to-section').forEach(el => el.addEventListener(
 
   
 
+hat.textContent = '🎓';
+hat.innerHTML = '<img src="" alt="hat" />';
+
+const prev = document.querySelector('.prev');
+const next = document.querySelector('.next');
+const imagesContainer = document.querySelector('.carousel-images');
+const images = imagesContainer.querySelectorAll('img');
+let index = 0;
+
+function showImage(i) {
+  const width = images[0].clientWidth;  // width of the first image
+  imagesContainer.style.transform = `translateX(${-i * width}px)`;
+}
+
+// Arrow click events
+next.addEventListener('click', () => {
+  index = (index + 1) % images.length;
+  showImage(index);
+});
+
+prev.addEventListener('click', () => {
+  index = (index - 1 + images.length) % images.length;
+  showImage(index);
+});
+
+
+function updateArrows() {
+  prev.style.display = index === 0 ? 'none' : 'block';
+  next.style.display = index === images.length - 1 ? 'none' : 'block';
+}
+
+function showImage(i) {
+  const width = images[0].clientWidth;
+  imagesContainer.style.transform = `translateX(${-i * width}px)`;
+  updateArrows(); // update arrows whenever image changes
+}
+
+// Initial setup
+updateArrows();
+

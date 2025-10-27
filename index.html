@@ -89,6 +89,72 @@
     <br>
     <br>
     <br>
+    <br>
+    <br>
+    <br>
+    <br>
+  <h1>2025 Graduate!</h1>
+
+<!-- 🎓 Graduation Hat Toss Animation -->
+ <img class="graduation-photo" src="images/graduation.jpeg" alt="Graduation photo">
+<div class="grad-hat-wrapper">
+  <div class="cap">🎓</div>
+  <button id="tossButton">Throw Hat!</button>
+</div>
+
+<style>
+  /* Container now scrolls naturally with the page */
+  .grad-hat-wrapper {
+    position: relative;
+    margin: 100px auto;     /* centers in page and adds spacing */
+    text-align: center;
+  }
+
+  .cap {
+    font-size: 80px;
+    position: relative;
+    display: inline-block;
+    animation: none;
+  }
+
+  @keyframes toss {
+    0% { transform: translateY(0) rotate(0deg); }
+    30% { transform: translateY(-300px) rotate(-180deg); }
+    60% { transform: translateY(-100px) rotate(-360deg); }
+    100% { transform: translateY(0) rotate(-540deg); }
+  }
+
+  /* Style the Throw Hat button */
+  #tossButton {
+    margin-top: 20px;
+    padding: 8px 16px;
+    font-size: 16px;
+    background-color: #222;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background 0.3s;
+  }
+
+  #tossButton:hover {
+    background-color: #444;
+  }
+</style>
+
+<script>
+  const cap = document.querySelector('.grad-hat-wrapper .cap');
+  const button = document.getElementById('tossButton');
+
+  button.addEventListener('click', () => {
+    cap.style.animation = 'none';
+    void cap.offsetWidth; // reset animation
+    cap.style.animation = 'toss 2s ease-out forwards';
+  });
+</script>
+<br>
+<br>
+    
     <p>
         <h3><b><u>How it all began:</u></b><br></h3>
         <br>
@@ -148,6 +214,43 @@
     <br>
     <br>
     <br>
+    <br>
+    <h2><b>Early work ⬇</b></h2>
+        <div class="carousel">
+  <button class="prev">&#10094;</button>
+  <div class="carousel-images">
+    <img src="images/sunnysidetravels2020.jpeg" alt="sunnysidetravels2020">
+    <img src="images/tropical.jpeg" alt="tropical">
+  </div>
+  <button class="next">&#10095;</button>
+</div>
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+  const prev = document.querySelector('.prev');
+  const next = document.querySelector('.next');
+  const imagesContainer = document.querySelector('.carousel-images');
+  const images = imagesContainer.querySelectorAll('img');
+  let index = 0;
+
+  function showImage(i) {
+    const width = images[0].clientWidth;
+    imagesContainer.style.transform = `translateX(${-i * width}px)`;
+  }
+
+  next.addEventListener('click', () => {
+    index = (index + 1) % images.length;
+    showImage(index);
+  });
+
+  prev.addEventListener('click', () => {
+    index = (index - 1 + images.length) % images.length;
+    showImage(index);
+  });
+});
+</script>
+
+
+
     <p>
     <h2 style="color: #B1408E;">Contact form</h2>
     <form>
