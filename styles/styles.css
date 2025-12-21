@@ -565,6 +565,64 @@ li a:hover {
 }
 
 
+
+
+.card {
+  position: relative;
+  width: 300px;
+  height: 200px;
+  border-radius: 16px;
+  overflow: hidden; /* IMPORTANT for rounded corners */
+  cursor: pointer;
+}
+
+/* Image */
+.card img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.6); /* faded solid layer */
+  color: white;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 20px;
+
+  /* Start hidden */
+  transform: translateY(100%);
+  transition: transform 0.4s ease;
+}
+
+/* Slide up on hover */
+.card:hover .overlay {
+  transform: translateY(0);
+}
+
+.overlay h3 {
+  margin: 0 0 8px;
+  font-size: 1.3rem;
+  color:white;
+}
+
+.overlay p {
+  margin: 0;
+  font-size: 0.95rem;
+  opacity: 0.9;
+}
+
+
+
+
+
+
+
+
 @import url(https://fonts.googleapis.com/css?family=Source+Sans+Pro:400italic);
 * { margin: 0; }
 body { 
