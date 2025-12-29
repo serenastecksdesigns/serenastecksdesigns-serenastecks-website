@@ -156,6 +156,22 @@ updateArrows();
 
 
 
+const btn = document.getElementById('sendBtn');
+const box = document.getElementById('msgBox');
+
+btn.addEventListener('click', () => {
+  // This adds the "show-msg" class when clicked
+  box.classList.add('show-msg');
+  
+  // Optional: Hide it again after 3 seconds
+  setTimeout(() => {
+    box.classList.remove('show-msg');
+  }, 3000);
+});
+
+
+
+
 
 
 
