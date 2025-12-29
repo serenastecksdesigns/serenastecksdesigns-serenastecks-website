@@ -702,23 +702,7 @@ li a:hover {
   pointer-events: none;
 }
 
-/* Hide button by default on desktop */
-.card-toggle {
-  display: none;
-}
 
-/* Show button for touch devices */
-@media (hover: none) {
-  .card-toggle {
-    display: block;
-    position: absolute;
-    inset: 0; /* cover entire card */
-    z-index: 20;
-    background: transparent; /* invisible */
-    border: none;
-    cursor: pointer;
-  }
-}
 
 /* Active overlay */
 .card.active .overlay {
