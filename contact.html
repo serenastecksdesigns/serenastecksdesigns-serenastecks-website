@@ -90,9 +90,19 @@
         <textarea></textarea>
         <br>
         <br>
-        <input type="submit" value="Submit" class="input">
+        <button id="myButton">Submit</button>
+        <script>
+  // Grab the button by its ID
+  const btn = document.getElementById("myButton");
+
+  // Add a click listener
+  btn.addEventListener("click", () => {
+    alert("You've successfully submitted the form");
+  });
+</script>
         <br>
     </form>
+
 
 
     <style>

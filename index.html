@@ -6,7 +6,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Serena Stecks Designs</title>
   <link rel="stylesheet" href="styles/styles.css">
-  <script src="javascript.js"></script>
+  <script src="javascript.js" defer></script>
+  <script src="script.js" defer></script>
   <input id="search" placeholder="search" autocomplete="off">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
@@ -152,6 +153,7 @@
     #tossButton:hover {
       background-color: #444;
     }
+    
   </style>
 
   <script>
@@ -173,6 +175,8 @@
   <br>
 
 
+  
+
 
   <h1>Side Projects</h1>
   <h4>(Hover over image to get more information)</h4>
@@ -180,12 +184,28 @@
 
   <div class="card">
     <img src="images/Rob logo design.png" alt="Rob logo">
+    <button class="card-button">Show Info</button> <!-- button for mobile -->
     <div class="overlay">
       <h3>Rob's App Logo Redesign</h3>
       <p>This project involved redesigning the logo for Rob G's app, an app that helps users stay informed about
         allergens in Austin.</p>
     </div>
   </div>
+
+
+
+  
+
+
+  
+
+
+
+
+  
+
+
+
 
 
 <br>
@@ -314,7 +334,17 @@
     <textarea></textarea>
     <br>
     <br>
-    <input type="submit" value="Submit" class="input">
+    <button id="myButton">Submit</button>
+
+<script>
+  // Grab the button by its ID
+  const btn = document.getElementById("myButton");
+
+  // Add a click listener
+  btn.addEventListener("click", () => {
+    alert("You've successfully submitted the form");
+  });
+</script>
     <br>
   </form>
 
@@ -436,6 +466,7 @@
 
   </footer>
 
+  
 </body>
 
 </html>
