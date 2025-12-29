@@ -619,6 +619,48 @@ li a:hover {
 }
 
 
+.msg-btn {
+  background-color: #b1408e; /* Professional blue */
+  color: white;
+  padding: 12px 24px;
+  font-size: 16px;
+  font-weight: bold;
+  border: none;
+  border-radius: 8px; /* Rounded corners */
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+/* Changes color when you hover over it */
+.msg-btn:hover {
+  background-color: #F69AE5;
+}
+
+/* Makes it look pressed when clicked */
+.msg-btn:active {
+  transform: scale(0.98);
+}
+
+/* This hides the button by default on large screens */
+@media screen and (min-width: 1025px) {
+  #myBtn {
+    display: none !important;
+  }
+  
+  /* Optional: Also hide the message box if it was open */
+  #myMessage {
+    display: none !important;
+  }
+}
+
+/* This ensures it stays visible on mobile/tablets */
+@media screen and (max-width: 1024px) {
+  #myBtn {
+    display: inline-block; /* Or 'block' depending on your layout */
+  }
+}
+
+
 
 
 @import url(https://fonts.googleapis.com/css?family=Source+Sans+Pro:400italic);
