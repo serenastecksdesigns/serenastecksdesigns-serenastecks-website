@@ -566,12 +566,6 @@ li a:hover {
 
 
 
-
-
-
-
-
-
 .card {
   position: relative;
   width: 300px;
@@ -587,57 +581,6 @@ li a:hover {
     top: 0;
   }
 }
-
-
-  .card-toggle {
-    display: block;          /* show only on touch devices */
-    position: absolute;      /* sit on top of the card */
-    inset: 0;                /* cover the entire card */
-    z-index: 20;             /* above the image */
-    background: transparent; /* invisible */
-    border: none;            /* no border */
-    cursor: pointer;         /* shows finger pointer */
-    padding: 0;
-  }
-
-
-/* Mobile / click toggle */
-.card.active .overlay {
-  top: 0;
-}
-
-/* Default: hide the button */
-.card-button {
-  display: none;
-}
-
-/* Show only on touch devices */
-@media (hover: none) and (pointer: coarse) {
-  .card-button {
-    display: block;
-    position: absolute;
-    bottom: 10px;
-    left: 50%;
-    transform: translateX(-50%);
-    z-index: 10;
-    padding: 8px 16px;
-    background: #3498db;
-    color: white;
-    border: none;
-    border-radius: 6px;
-    cursor: pointer;
-    font-size: 16px;
-  }
-}
-
-
-.card.active .card-content {
-  max-height: 200px; /* adjust as needed */
-  padding: 15px;
-}
-
-
-
 
 /* Overlay starts hidden */
 .overlay {
@@ -658,30 +601,11 @@ li a:hover {
   pointer-events: none; /* lets button receive taps */
 }
 
-.card.active .overlay {
-  top: 0; /* overlay slides up when card has "active" */
-}
-
 .overlay h3 {
   margin: 0 0 8px;
   font-size: 1.3rem;
   color: white; /* title white */
 }
-
-
-.overlay p {
-  margin: 0;
-  font-size: 0.95rem;
-  opacity: 0.9;
-}
-
-
-.card,
-.card img {
-  outline: none; /* removes focus ring */
-  -webkit-tap-highlight-color: transparent; /* removes blue highlight on mobile Safari/Chrome */
-}
-
 
 /* Image stays at the back */
 .card img {
@@ -693,30 +617,6 @@ li a:hover {
   user-select: none;
   -webkit-user-drag: none;
 }
-
-
-.overlay {
-  top: 100%;  /* hidden initially */
-  transition: top 0.4s ease;
-  z-index: 10;
-  pointer-events: none;
-}
-
-
-
-/* Active overlay */
-.card.active .overlay {
-  top: 0;
-}
-
-
-
-
-
-
-
-
-
 
 
 
@@ -973,7 +873,7 @@ a {
 #myButton {
   background-color: #B1408E;   /* button color */
   color: #f9d3e4;                 /* text color */
-  padding: 15px 191px;           /* expands the button */
+  padding: 15px 148px;           /* expands the button */
   border: none;              /* removes the black border */
   border-radius: 4px;        /* rounded corners */
 }
@@ -982,6 +882,9 @@ a {
   background-color: #f9d3e4;
   color: #B1408E; /* change text on hover */
 }
+
+
+
 
 
 footer {
