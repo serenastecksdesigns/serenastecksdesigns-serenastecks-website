@@ -153,19 +153,84 @@ function showImage(i) {
 updateArrows();
 
 
+// Check if the element exists first
+const mybtn = document.getElementById("MyButton");
+
+if (btn) { // only run if button exists
+  btn.addEventListener("click", (e) => {
+    e.preventDefault(); // prevent actual form submission if desired
+    alert("You've successfully submitted the form");
+  });
+}
+
+
+document.getElementById('myBtn').addEventListener('click', () => {
+  document.getElementById('myMessage').classList.toggle('show');
+});
+
+
+// 1. Find the button by its ID
+const btn = document.getElementById('myBtn');
+
+// 2. Tell it what to do when clicked
+btn.addEventListener('click', function() {
+  alert('Hello! This is your restored message.');
+});
+
+
+document.querySelectorAll(".card-button").forEach(btn => {
+  btn.addEventListener("click", () => {
+    const card = btn.closest(".card");
+    card.classList.toggle("active"); // toggle overlay
+  });
+});
 
 
 
-const btn = document.getElementById('sendBtn');
-const box = document.getElementById('msgBox');
+btn.addEventListener("click", () => {
+  console.log("Button clicked!"); // check console
+  const card = btn.closest(".card");
+  card.classList.toggle("active");
+});
+
+
+<div class="card" onclick="toggleExpand(this)">
+</div>
+
+function toggleExpand(cardElement) {
+  cardElement.classList.toggle('expanded');
+  // You would add corresponding CSS for the .expanded class
+  console.log("Card clicked! Toggled expanded state.");
+}
+
+// Alternatively, use an event listener
+document.querySelectorAll('.card-button').forEach(button => {
+  button.addEventListener('click', function(event) {
+    event.stopPropagation(); // Prevent the parent card's click event from firing
+    alert('Button was clicked!');
+  });
+});
+
+
+
+
+
+
+
+
+
+
+
+const myBtnbtn = document.getElementById('sendBtn');
+const toast = document.getElementById('toast');
 
 btn.addEventListener('click', () => {
-  // This adds the "show-msg" class when clicked
-  box.classList.add('show-msg');
-  
-  // Optional: Hide it again after 3 seconds
+  // Add the 'show' class to trigger CSS animation
+  toast.classList.add('show');
+
+  // Automatically remove it after 3 seconds
   setTimeout(() => {
-    box.classList.remove('show-msg');
+    toast.classList.remove('show');
   }, 3000);
 });
 
