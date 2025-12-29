@@ -989,7 +989,7 @@ a {
 #myButton {
   background-color: #B1408E;   /* button color */
   color: #f9d3e4;                 /* text color */
-  padding: 15px 30px;           /* expands the button */
+  padding: 15px 191px;           /* expands the button */
   border: none;              /* removes the black border */
   border-radius: 4px;        /* rounded corners */
 }
