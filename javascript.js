@@ -156,25 +156,7 @@ updateArrows();
 
 
 
-document.addEventListener("DOMContentLoaded", () => {
-  document.querySelectorAll(".card-button").forEach(btn => {
-    btn.addEventListener("click", () => {
-      const card = btn.closest(".card");
-      card.classList.toggle("active"); // shows or hides overlay
-    });
-  });
-});
 
-document.addEventListener("DOMContentLoaded", () => {
-  if (window.matchMedia("(hover: none)").matches) { // touch devices only
-    document.querySelectorAll(".card-button").forEach(btn => {
-      btn.addEventListener("click", () => {
-        const card = btn.closest(".card");
-        card.classList.toggle("active"); // slide overlay up/down
-      });
-    });
-  }
-});
 
 
 
