@@ -193,30 +193,14 @@
 
 
 
-
-
-
-
-
-
-  
-
-
-  
-
-<!DOCTYPE html>
-<html>
-<head>
 <style>
-  /* 1. The Button */
   .msg-btn {
     padding: 10px 20px;
     cursor: pointer;
   }
 
-  /* 2. The Message (Hidden by default) */
   .toast {
-    display: none; /* This makes it disappear completely */
+    display: none;
     margin-top: 20px;
     padding: 15px;
     background-color: #333;
@@ -225,35 +209,40 @@
     width: fit-content;
   }
 
-  /* 3. The Show Class (The "On" Switch) */
-  /* IMPORTANT: No space between .toast and .show */
   .toast.show {
-    display: block !important; 
+    display: block;
   }
 </style>
 </head>
 <body>
 
+  <!-- Button 1 -->
   <button id="myBtn" class="msg-btn">Click for info</button>
-  
   <div id="myMessage" class="toast">
     <h3>Rob's App Logo Redesign</h3>
-      <p>This project involved redesigning the logo for Rob G's app, an app that helps users stay informed about
-        allergens in Austin.</p>
+    <p>This project involved redesigning the logo for Rob G's app.</p>
   </div>
 
   <script>
-    const btn = document.getElementById('myBtn');
+    // Button 1 logic
+    const infoBtn = document.getElementById('myBtn');
     const msg = document.getElementById('myMessage');
 
-    btn.onclick = function() {
-      // This toggles the 'show' class on and off
+    infoBtn.onclick = function () {
       msg.classList.toggle('show');
     };
-  </script>
+</script>
 
-</body>
-</html>
+
+
+
+
+  
+
+
+  
+
+
 
 
 
@@ -389,17 +378,18 @@
     <textarea></textarea>
     <br>
     <br>
-    <button id="myButton">Submit</button>
+    <!-- Button 2 -->
+  <button id="MyButton">Submit</button>
 
-<script>
-  // Grab the button by its ID
-  const btn = document.getElementById("myButton");
+  <script>
+// Button 2 logic
+    const submitBtn = document.getElementById('MyButton');
 
-  // Add a click listener
-  btn.addEventListener("click", () => {
-    alert("You've successfully submitted the form");
-  });
-</script>
+    submitBtn.addEventListener('click', () => {
+      alert("You've successfully submitted the form");
+    });
+  </script>
+
     <br>
   </form>
 
