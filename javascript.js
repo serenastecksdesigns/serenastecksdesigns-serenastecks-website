@@ -177,38 +177,7 @@ document.addEventListener("DOMContentLoaded", () => {
 });
 
 
-document.querySelectorAll(".card-button").forEach(btn => {
-  btn.addEventListener("click", () => {
-    const card = btn.closest(".card");
-    card.classList.toggle("active"); // toggle overlay
-  });
-});
 
-
-
-btn.addEventListener("click", () => {
-  console.log("Button clicked!"); // check console
-  const card = btn.closest(".card");
-  card.classList.toggle("active");
-});
-
-
-<div class="card" onclick="toggleExpand(this)">
-</div>
-
-function toggleExpand(cardElement) {
-  cardElement.classList.toggle('expanded');
-  // You would add corresponding CSS for the .expanded class
-  console.log("Card clicked! Toggled expanded state.");
-}
-
-// Alternatively, use an event listener
-document.querySelectorAll('.card-button').forEach(button => {
-  button.addEventListener('click', function(event) {
-    event.stopPropagation(); // Prevent the parent card's click event from firing
-    alert('Button was clicked!');
-  });
-});
 
 
 
