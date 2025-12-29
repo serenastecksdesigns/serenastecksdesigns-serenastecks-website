@@ -926,20 +926,6 @@ a {
 }
 
 
-#MyButton {
-  background-color: #B1408E;   /* button color */
-  color: #f9d3e4;                 /* text color */
-  padding: 15px 148px;           /* expands the button */
-  border: none;              /* removes the black border */
-  border-radius: 4px;        /* rounded corners */
-}
-
-#MyButton:hover {
-  background-color: #f9d3e4;
-  color: #B1408E; /* change text on hover */
-}
-
-
 
 
 
