@@ -538,22 +538,25 @@ li a:hover {
 
 
 .button {
-    text-decoration: none; /* Remove underline */
-    background-color: #f9d3e4; /* Background color */
-    color: #000; /* Text color */
-    padding: 10px 20px; /* Button padding */
-    border-radius: 5px; /* Rounded corners */
-    border: 2px solid #b1408e; /* Optional border */
-    font-size: 16px; /* Font size */
-    cursor: pointer; /* Pointer cursor for hover */
-    transition: background-color 0.3s ease; /* Smooth hover effect */
+  display: inline-block;     /* keeps natural width */
+  text-decoration: none;     /* Remove underline */
+  background-color: #f9d3e4; /* Background color */
+  color: #000;               /* Text color */
+  padding: 10px 20px;        /* Button padding */
+  border-radius: 5px;        /* Rounded corners */
+  border: 2px solid #b1408e; /* Optional border */
+  font-size: 16px;           /* Font size */
+  cursor: pointer;           /* Pointer cursor for hover */
+  transition: background-color 0.3s ease; /* Smooth hover effect */
+  text-align: center;
+  margin: 8px 4px;           /* spacing between buttons */
 }
-
 
 .button:hover {
-    background-color: #b1408e; /* Change background color on hover */
-    color: #fff; /* Change text color on hover */
+  background-color: #b1408e;
+  color: #fff;
 }
+
 
 .cap img {
   width: 60px;
