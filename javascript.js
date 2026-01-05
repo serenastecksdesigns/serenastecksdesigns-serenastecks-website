@@ -236,6 +236,10 @@ btn.addEventListener('click', () => {
 
 
 
+function closeModal(event) {
+  if(event) event.stopPropagation(); // stops bubbling if needed
+  document.getElementById("modal").style.display = "none";
+}
 
 
 

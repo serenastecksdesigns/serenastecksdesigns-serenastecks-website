@@ -302,10 +302,11 @@ function closeModal() {
   </div>
 </div>
 
+
 <!-- Modal -->
 <div id="modal" onclick="closeModal()">
-  <span id="modal-close">&times;</span>
-  <img id="modal-img">
+  <span id="modal-close" onclick="closeModal(event)">&times;</span>
+  <img id="modal-img" onclick="event.stopPropagation()">
 </div>
 
 
