@@ -192,7 +192,6 @@
   </div>
 
 
-
 <style>
   .msg-btn {
     padding: 10px 20px;
@@ -238,16 +237,77 @@
 
 
 
+<br>
+<br>
+<br>
+<br>
+<br>
   
 
 
+  <h2>Digitally Replanted</h2>
+  <h4>Tasked with testing a new plant placement using Photoshop.</h4>
+<br>
+<br>
+<br>
+<br>
+      <div class="container"> 
+
+
+
+
+
+
+
+
+
+
+
   
 
 
 
 
 
-  
+
+<!-- Modal -->
+<div id="modal" onclick="closeModal()">
+  <span id="modal-close">&times;</span>
+  <img id="modal-img">
+</div>
+
+
+
+<script>
+function openModal(img) {
+  document.getElementById("modal").style.display = "flex";
+  document.getElementById("modal-img").src = img.src;
+}
+
+function closeModal() {
+  document.getElementById("modal").style.display = "none";
+}
+</script>
+
+
+  <div class="row">
+  <div class="thumb">
+    <img src="images/Wall.jpeg" alt="wall" onclick="openModal(this)">
+  </div>
+  <div class="thumb">
+    <img src="images/Plant before.jpeg" alt="plant" onclick="openModal(this)">
+  </div>
+  <div class="thumb">
+    <img src="images/Final plant relocate.png" alt="final" onclick="openModal(this)">
+  </div>
+</div>
+
+<!-- Modal -->
+<div id="modal" onclick="closeModal()">
+  <span id="modal-close">&times;</span>
+  <img id="modal-img">
+</div>
+
 
 
 
@@ -508,7 +568,7 @@
 
   <footer>
 
-    © 2025 Serena Stecks Designs. All Rights Reserved.
+    © 2025-2026 Serena Stecks Designs. All Rights Reserved.
 
     <a href="https://www.instagram.com/serenastecksdesigns?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw=="
       class="fa fa-instagram"></a>
