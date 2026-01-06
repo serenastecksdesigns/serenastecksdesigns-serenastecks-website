@@ -179,6 +179,8 @@
 
 
   <h1>Side Projects</h1>
+  <br>
+  <section class="section-card">
   <h4>(Desktop users hover for information, mobile users can click button for more information)</h4>
 
 
@@ -232,47 +234,25 @@
       msg.classList.toggle('show');
     };
 </script>
+</section>
 
 
 
 
 
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
 
 
-  <h2>Digitally Replanted</h2>
-  <h3>Tasked with testing a new plant placement using Photoshop.</h3>
-<br>
-<br>
-<br>
+<section class="section-gallery">
+  <h2 class="special-heading">Digitally Replanted</h2>
+
+  <h4>Tasked with testing a new plant placement using Photoshop.</h4>
 <br>
 <br>
 <h5>Click on the images to make it enlarged</h5>
       <div class="container"> 
 
 
-
-
-
-
-
-
-
-
-
-  
-
-
-
-
-
-
+        
 
 <!-- Modal -->
 <div id="modal" onclick="closeModal()">
@@ -293,16 +273,17 @@ function closeModal() {
 }
 </script>
 
-  <p>Background</p>
+<br>
   <div class="row">
+     <p>Background</p>
   <div class="thumb">
     <img src="images/Wall.jpeg" alt="wall" onclick="openModal(this)">
   </div>
-  <p>Plant original location</p>
+  <p>Plant original</p>
   <div class="thumb">
     <img src="images/Plant before.jpeg" alt="plant" onclick="openModal(this)">
   </div>
-  <p>Plant edited location</p>
+  <p>Plant edited</p>
   <div class="thumb">
     <img src="images/Final plant relocate.png" alt="final" onclick="openModal(this)">
   </div>
@@ -314,12 +295,14 @@ function closeModal() {
   <span id="modal-close" onclick="closeModal(event)">&times;</span>
   <img id="modal-img" onclick="event.stopPropagation()">
 </div>
+</section>
 
 
 
 
 
 
+
 <br>
 <br>
 <br>
@@ -328,7 +311,7 @@ function closeModal() {
 <br>
 <br>
 <br>
-<br><br>
+<br>
 
 
 
@@ -485,6 +468,55 @@ function closeModal() {
 
 
 
+<style>
+.back-to-top {
+  display: none;           /* fully hidden at start */
+  position: fixed;
+  bottom: 40px;
+  right: 40px;
+  padding: 10px 20px;
+  background-color: #B1408E;
+  color: #F69AE5;
+  border-radius: 25px;
+  cursor: pointer;
+  z-index: 999;
+}
+</style>
+
+<a href="#" class="back-to-top">Top</a>
+
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script>
+$(document).ready(function() {
+  var $backToTop = $(".back-to-top");
+
+  function toggleBackToTop() {
+    if ($(window).scrollTop() > 10) {   // appear very soon
+      $backToTop.stop(true,true).fadeIn(300);
+    } else {
+      $backToTop.stop(true,true).fadeOut(300);
+    }
+  }
+
+  // Initial check on page load
+  toggleBackToTop();
+
+  // On scroll
+  $(window).on('scroll', toggleBackToTop);
+
+  // Click to scroll to top
+  $backToTop.on('click', function(e) {
+    e.preventDefault();
+    $("html, body").animate({ scrollTop: 0 }, 400, toggleBackToTop);
+  });
+});
+</script>
+
+
+
+
+
+<div class="back-to-top">Top</div>
 
 
   <style>
@@ -509,8 +541,25 @@ function closeModal() {
 
 
 
-  <a href="#" class="back-to-top">Top</a>
+  
 
+
+
+<script>
+const backToTop = document.querySelector('.back-to-top');
+
+if (backToTop) {
+  window.addEventListener('scroll', () => {
+    backToTop.style.opacity = window.scrollY > 150 ? '1' : '0';
+  });
+
+  backToTop.addEventListener('click', e => {
+    e.preventDefault();
+    backToTop.style.opacity = '0';
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  });
+}
+</script>
 
 
 
