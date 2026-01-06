@@ -573,6 +573,16 @@ li a:hover {
 
 
 
+.section-card {
+  background-color: #bebebe; 
+  padding: 20px;
+  border-radius: 10px;       /* optional rounded corners */
+  margin-bottom: 30px;       /* space below the section */
+}
+
+
+
+
 .card {
   position: relative;
   width: 300px;
@@ -674,6 +684,19 @@ li a:hover {
 
 
 
+.section-gallery {
+  background-color: #99e7a2; 
+  padding: 20px;
+  border-radius: 10px;
+  margin-bottom: 30px;
+}
+
+
+
+
+h2.special-heading {
+  color: green;
+}
 
 
 
@@ -1009,47 +1032,35 @@ dl#simple-gallery {
   z-index: 1000;  /* ensure arrows are on top */
 }
 
-  
-  
-  .back-to-top {
-    padding-left: 10px;
-    border: none;
-    text-decoration: none !important; /* Use !important to override any conflicting styles */
-    background: none;
-    cursor: pointer;
-    background-color: #B1408E;
-    color: #F69AE5;
-     
-}
 
-a.back-to-top {
-    text-decoration: none !important;
-}
 
-a {
-    text-decoration: none;
+
+  
+body {
+  height: 2000px;
+  position: relative;
 }
 
 .back-to-top {
-    padding-left: 10px;
-    border: none;
-    text-decoration: none !important;
-    background-color: #B1408E;
-    color: #B1408E;
-    border-radius: 25px;
-    padding: 10px 20px;
-    position: fixed;
-    bottom: 40px; /* Increase the bottom margin for more space */
-    right: 50%; /* Center horizontally */
-    transform: translateX(50%); /* Offset the centering to fully position it at the center */
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    transition: opacity 0.3s ease-in-out;
+  display: none;
+  position: fixed;
+  bottom: 40px;
+  right: 40px;
+  padding: 10px 20px;
+  background-color: #B1408E;
+  color: #F69AE5;
+  border-radius: 25px;
+  cursor: pointer;
+  text-decoration: none !important;  /* removes underline */
+  z-index: 999;
 }
 
-.back-to-top.show {
-    display: block;
-    opacity: 1;
+.back-to-top:hover,
+.back-to-top:focus {
+  text-decoration: none !important;  /* removes underline on hover/focus */
 }
+
+
 
 .container {
     display: flex;
