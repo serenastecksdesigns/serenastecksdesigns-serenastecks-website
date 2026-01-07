@@ -348,11 +348,18 @@ form {
     padding: 0;
 }
 
-html, body {
-    width: 100%;
-    height: 100%;
-    overflow-x: hidden; /* Prevent horizontal scroll */
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  text-align: center;
+  padding: 10px;
+  min-height: 2000px;   /* KEEP this so scrolling exists */
+  overflow-x: hidden;  /* prevent sideways scroll */
 }
+body {
+  padding-top: 30px; /* 20px bar + a little breathing room */
+}
+
 
 /* Ensure images are responsive */
 img {
@@ -573,13 +580,14 @@ li a:hover {
 
 
 
-.section-card {
-  background-color: #bebebe; 
-  padding: 20px;
-  border-radius: 10px;       /* optional rounded corners */
-  margin-bottom: 30px;       /* space below the section */
+.card-section {
+  background-color: #cecece;  /* Your card section color */
+    padding: 50px 20px;
+    border-top: 3px solid #000000;
+    border-left: 3px solid #000000;
+    border-right: 3px solid #000000;
+    border-bottom: 3px solid #000000;
 }
-
 
 
 
@@ -684,19 +692,6 @@ li a:hover {
 
 
 
-.section-gallery {
-  background-color: #99e7a2; 
-  padding: 20px;
-  border-radius: 10px;
-  margin-bottom: 30px;
-}
-
-
-
-
-h2.special-heading {
-  color: green;
-}
 
 
 
@@ -865,10 +860,22 @@ h2.special-heading {
   cursor: pointer;
 }
 
+.gallery-section {
+  background-color: #b2dfb1;  /* Your gallery section color */
+  padding: 50px 20px;
+  border-bottom: 3px solid #000000;
+  border-left: 3px solid #000000;
+  border-right: 3px solid #000000;
+
+}
 
 
 
 
+
+.special-heading {
+  color: #0e8924;
+}
 
 
 
@@ -1035,11 +1042,12 @@ dl#simple-gallery {
 
 
 
-  
 body {
-  height: 2000px;
-  position: relative;
+  min-height: 2000px;
+  margin: 0;
 }
+
+
 
 .back-to-top {
   display: none;
@@ -1051,13 +1059,9 @@ body {
   color: #F69AE5;
   border-radius: 25px;
   cursor: pointer;
-  text-decoration: none !important;  /* removes underline */
+  text-decoration: none !important;
   z-index: 999;
-}
-
-.back-to-top:hover,
-.back-to-top:focus {
-  text-decoration: none !important;  /* removes underline on hover/focus */
+  opacity: 0.8;
 }
 
 
@@ -1099,12 +1103,7 @@ body {
     float: right;
 }
 
-.back-to-top {
-    position: fixed;
-    bottom: 50px;
-    right: 60px;
-    z-index: 100;
-}
+
 
 .search-container {
     margin-top: 20px; /* Add more spacing between elements */
@@ -1122,9 +1121,6 @@ body {
   background-color: #f9d3e4;
   color: #B1408E;
 }
-
-
-
 
 
 
