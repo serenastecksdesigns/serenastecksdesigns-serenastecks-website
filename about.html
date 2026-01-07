@@ -91,25 +91,30 @@
         <br>
     </div>
 
-    <style>
-        .back-to-top {
-            padding-left: 10px;
-            border: none;
-            text-decoration: underline;
-            background: #dd6ec9;
-            color: #3d1631;
-            cursor: pointer;
-            opacity: 80%;
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script>
+$(function () {
+  const $btn = $(".back-to-top");
 
-        }
+  // hide initially
+  $btn.hide();
 
-        .section {
-            height: 600px;
-            padding: 20px;
-            border: 1px solid #ccc;
-            margin: 20px;
-        }
-    </style>
+  $(window).on("scroll", function () {
+    if ($(this).scrollTop() > 10) {
+      $btn.stop(true, true).fadeIn(300);
+    } else {
+      $btn.stop(true, true).fadeOut(300);
+    }
+  });
+
+  $btn.on("click", function (e) {
+    e.preventDefault();
+    $("html, body").animate({ scrollTop: 0 }, 400);
+  });
+});
+</script>
+
+<a href="#" class="back-to-top">Top</a>
 
 
 

@@ -153,7 +153,15 @@ function showImage(i) {
 updateArrows();
 
 
+// Check if the element exists first
+const mybtn = document.getElementById("MyButton");
 
+if (btn) { // only run if button exists
+  btn.addEventListener("click", (e) => {
+    e.preventDefault(); // prevent actual form submission if desired
+    alert("You've successfully submitted the form");
+  });
+}
 
 
 document.getElementById('myBtn').addEventListener('click', () => {
@@ -186,17 +194,8 @@ btn.addEventListener("click", () => {
 });
 
 
-// Check if the element exists first
-const mybtn = document.getElementById("MyButton");
-
-if (btn) { // only run if button exists
-  btn.addEventListener("click", (e) => {
-    e.preventDefault(); // prevent actual form submission if desired
-    alert("You've successfully submitted the form");
-  });
-}
-
-
+<div class="card" onclick="toggleExpand(this)">
+</div>
 
 function toggleExpand(cardElement) {
   cardElement.classList.toggle('expanded');
@@ -237,49 +236,29 @@ btn.addEventListener('click', () => {
 
 
 
+function closeModal(event) {
+  if(event) event.stopPropagation(); // stops bubbling if needed
+  document.getElementById("modal").style.display = "none";
+}
 
 
 
-$(document).ready(function() {
-  var $backToTop = $(".back-to-top");
 
-  // Start hidden in CSS
-  $backToTop.hide();
 
-  // Fade in button as soon as the user scrolls at all
-  $(window).on('scroll', function() {
-    $backToTop.stop(true,true).fadeIn(300); // show immediately
-  });
 
-  // Fade out if at very top
-  $(window).on('scroll', function() {
-    if ($(window).scrollTop() === 0) {
-      $backToTop.stop(true,true).fadeOut(300);
-    }
-  });
 
-  // Click handler
-  $backToTop.on('click', function(e) {
-    e.preventDefault();
-    $("html, body").animate({ scrollTop: 0 }, 400, function() {
-      $backToTop.stop(true,true).fadeOut(300); // hide again at top
-    });
-  });
+
+
+
+const backToTop = document.querySelector(".back-to-top");
+
+window.addEventListener("scroll", () => {
+  if (window.scrollY > 200) {
+    backToTop.classList.add("show");
+  } else {
+    backToTop.classList.remove("show");
+  }
 });
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 

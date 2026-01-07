@@ -180,8 +180,9 @@
 
   <h1>Side Projects</h1>
   <br>
-  <section class="section-card">
+  <section class="card-section">
   <h4>(Desktop users hover for information, mobile users can click button for more information)</h4>
+
 
 
   <div class="card">
@@ -239,17 +240,33 @@
 
 
 
-<section class="section-gallery">
+
+
+  
+
+<section class="gallery-section">
   <h2 class="special-heading">Digitally Replanted</h2>
 
   <h4>Tasked with testing a new plant placement using Photoshop.</h4>
 <br>
-<br>
-<h5>Click on the images to make it enlarged</h5>
       <div class="container"> 
 
 
-        
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
 
 <!-- Modal -->
 <div id="modal" onclick="closeModal()">
@@ -270,17 +287,14 @@ function closeModal() {
 }
 </script>
 
-<br>
+
   <div class="row">
-     <p>Background</p>
   <div class="thumb">
     <img src="images/Wall.jpeg" alt="wall" onclick="openModal(this)">
   </div>
-  <p>Plant original</p>
   <div class="thumb">
     <img src="images/Plant before.jpeg" alt="plant" onclick="openModal(this)">
   </div>
-  <p>Plant edited</p>
   <div class="thumb">
     <img src="images/Final plant relocate.png" alt="final" onclick="openModal(this)">
   </div>
@@ -299,16 +313,11 @@ function closeModal() {
 
 
 
+<br>
+<br>
+<br>
+<br>
 
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
 
 
 
@@ -465,161 +474,32 @@ function closeModal() {
 
 
 
-<style>
-.back-to-top {
-  display: none;           /* fully hidden at start */
-  position: fixed;
-  bottom: 40px;
-  right: 40px;
-  padding: 10px 20px;
-  background-color: #B1408E;
-  color: #F69AE5;
-  border-radius: 25px;
-  cursor: pointer;
-  z-index: 999;
-}
-</style>
-
-<a href="#" class="back-to-top">Top</a>
-
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 <script>
-$(document).ready(function() {
-  var $backToTop = $(".back-to-top");
+$(function () {
+  const $btn = $(".back-to-top");
 
-  function toggleBackToTop() {
-    if ($(window).scrollTop() > 10) {   // appear very soon
-      $backToTop.stop(true,true).fadeIn(300);
+  // hide initially
+  $btn.hide();
+
+  $(window).on("scroll", function () {
+    if ($(this).scrollTop() > 10) {
+      $btn.stop(true, true).fadeIn(300);
     } else {
-      $backToTop.stop(true,true).fadeOut(300);
+      $btn.stop(true, true).fadeOut(300);
     }
-  }
+  });
 
-  // Initial check on page load
-  toggleBackToTop();
-
-  // On scroll
-  $(window).on('scroll', toggleBackToTop);
-
-  // Click to scroll to top
-  $backToTop.on('click', function(e) {
+  $btn.on("click", function (e) {
     e.preventDefault();
-    $("html, body").animate({ scrollTop: 0 }, 400, toggleBackToTop);
+    $("html, body").animate({ scrollTop: 0 }, 400);
   });
 });
 </script>
 
+<a href="#" class="back-to-top">Top</a>
 
 
-
-
-<div class="back-to-top">Top</div>
-
-
-  <style>
-    .back-to-top {
-      padding-left: 10px;
-      border: none;
-      text-decoration: underline;
-      background: #dd6ec9;
-      color: #3d1631;
-      cursor: pointer;
-      opacity: 80%;
-
-    }
-
-    .section {
-      height: 600px;
-      padding: 20px;
-      border: 1px solid #ccc;
-      margin: 20px;
-    }
-  </style>
-
-
-
-  
-
-
-
-<script>
-const backToTop = document.querySelector('.back-to-top');
-
-if (backToTop) {
-  window.addEventListener('scroll', () => {
-    backToTop.style.opacity = window.scrollY > 150 ? '1' : '0';
-  });
-
-  backToTop.addEventListener('click', e => {
-    e.preventDefault();
-    backToTop.style.opacity = '0';
-    window.scrollTo({ top: 0, behavior: 'smooth' });
-  });
-}
-</script>
-
-
-
-
-
-  <script>
-    console.clear();
-
-    function ease({
-      startValue = 0,
-      endValue = 1,
-      durationMs = 200,
-      onStep,
-      onComplete = () => { },
-    }) {
-      const raf = window.requestAnimationFrame || (func => window.setTimeout(func, 16));
-      const stepCount = durationMs / 16;
-      const valueIncrement = (endValue - startValue) / stepCount;
-      const sinValueIncrement = Math.PI / stepCount;
-      let currentValue = startValue;
-      let currentSinValue = 0;
-
-      function step() {
-        currentSinValue += sinValueIncrement;
-        currentValue += valueIncrement * (Math.sin(currentSinValue) ** 2) * 2;
-
-        if (currentSinValue < Math.PI) {
-          onStep(currentValue);
-          raf(step);
-        } else {
-          onStep(endValue);
-          onComplete();
-        }
-      }
-
-      raf(step);
-    }
-
-    document.querySelectorAll('.link-to-section').forEach(el => el.addEventListener('click', e => {
-      const targetId = e.target.getAttribute('href');
-      const targetEl = document.querySelector(targetId);
-      const targetPos = targetEl.getBoundingClientRect().top + window.scrollY;
-
-      ease({
-        startValue: window.scrollY,
-        endValue: targetPos,
-        durationMs: 400,
-        onStep: value => window.scroll(0, value),
-      });
-    }));
-
-    document.querySelectorAll('.back-to-top').forEach(el => el.addEventListener('click', () => {
-      ease({
-        startValue: window.scrollY,
-        endValue: 0,
-        onStep: value => window.scroll(0, value),
-        onComplete: () => {
-          document.querySelector('#search').focus();
-          document.location.hash = '';
-        }
-      });
-    }));
-  </script>
 
 
 
