@@ -89,6 +89,227 @@
 
         <br>
         <br>
+        <br>
+        <br>
+        <h1>Other fun work I've done</h1>
+        <br>
+        <br>
+        <br>
+        <style>
+    .carousel {
+      position: relative;
+      width: 100%;
+      max-width: 1920px;
+      margin: auto;
+      overflow: hidden;
+    }
+
+    .carousel-inner {
+      display: flex;
+      transition: transform 0.5s ease-in-out;
+    }
+
+    .carousel-item {
+      flex: 0 0 100%;
+      width: 100%;
+    }
+
+    .carousel-item img {
+      width: 100%;
+      height: auto;
+    }
+
+    .carousel-control-prev,
+    .carousel-control-next {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      background-color: rgba(0, 0, 0, 0.5);
+      color: white;
+      width: 40px;
+      height: 40px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      border-radius: 50%;
+      cursor: pointer;
+      z-index: 10;
+    }
+
+    .carousel-control-prev {
+      left: 10px;
+    }
+
+    .carousel-control-next {
+      right: 10px;
+    }
+
+    .carousel-dots {
+      position: absolute;
+      bottom: 10px;
+      left: 50%;
+      transform: translateX(-50%);
+      display: flex;
+    }
+
+    .carousel-dot {
+      width: 12px;
+      height: 12px;
+      margin: 0 5px;
+      border-radius: 50%;
+      background-color: rgba(255, 255, 255, 0.5);
+      cursor: pointer;
+    }
+
+    .carousel-dot.active {
+      background-color: white;
+    }
+
+    @media (max-width: 768px) {
+      .carousel-control-prev,
+      .carousel-control-next {
+        width: 30px;
+        height: 30px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="carousel" data-autoplay="true">
+    <div class="carousel-inner">
+      <div class="carousel-item">
+        <h2>Original</h2>
+        <br>
+        <img src="images/Original.jpeg" alt="Slide 1">
+      </div>
+      <div class="carousel-item">
+        <h2>Barb cosplay</h2>
+        <br>
+        <img src="images/Barb cosplay.png" alt="Slide 2">
+      </div>
+      <div class="carousel-item">
+        <h2>Barb</h2>
+        <br>
+        <img src="images/Barb.png" alt="Slide 3">
+      </div>
+    </div>
+    <div class="carousel-control-prev" onclick="moveSlide(-1)">&#10094;</div>
+    <div class="carousel-control-next" onclick="moveSlide(1)">&#10095;</div>
+    <div class="carousel-dots"></div>
+  </div>
+
+  <script>
+    const carousel = document.querySelector('.carousel');
+    const carouselInner = document.querySelector('.carousel-inner');
+    const slides = Array.from(carouselInner.children);
+    const totalSlides = slides.length;
+
+    // Clone the first and last slides for seamless looping
+    const firstClone = slides[0].cloneNode(true);
+    const lastClone = slides[totalSlides - 1].cloneNode(true);
+    carouselInner.appendChild(firstClone);
+    carouselInner.insertBefore(lastClone, slides[0]);
+
+    let currentIndex = 1; // Start from the actual first slide
+    let slideWidth = carousel.clientWidth;
+    let isTransitioning = false; // Flag to prevent overlapping transitions
+
+    // Set slide widths and adjust transform
+    const updateSlideWidth = () => {
+      slideWidth = carousel.clientWidth;
+      const allSlides = Array.from(carouselInner.children);
+      allSlides.forEach(slide => (slide.style.width = `${slideWidth}px`));
+      carouselInner.style.transition = 'none';
+      carouselInner.style.transform = `translateX(-${currentIndex * slideWidth}px)`;
+    };
+
+    const moveSlide = (direction) => {
+      if (isTransitioning) return; // Prevent additional clicks during transition
+      isTransitioning = true;
+
+      carouselInner.style.transition = 'transform 0.5s ease-in-out';
+      currentIndex += direction;
+      carouselInner.style.transform = `translateX(-${currentIndex * slideWidth}px)`;
+
+      // Handle seamless transitions
+      carouselInner.addEventListener('transitionend', () => {
+        if (currentIndex === 0) {
+          currentIndex = totalSlides;
+          carouselInner.style.transition = 'none';
+          carouselInner.style.transform = `translateX(-${currentIndex * slideWidth}px)`;
+        } else if (currentIndex === totalSlides + 1) {
+          currentIndex = 1;
+          carouselInner.style.transition = 'none';
+          carouselInner.style.transform = `translateX(-${currentIndex * slideWidth}px)`;
+        }
+        isTransitioning = false; // Re-enable button clicks
+      });
+
+      updateDots();
+    };
+
+    // Auto-play functionality
+    let autoPlayInterval;
+    const isAutoPlayEnabled = carousel.getAttribute('data-autoplay') === 'true';
+
+    if (isAutoPlayEnabled) {
+      autoPlayInterval = setInterval(() => {
+        moveSlide(1);
+      }, 3000);
+    }
+
+    // Pause auto-play on hover
+    carousel.addEventListener('mouseenter', () => {
+      if (isAutoPlayEnabled) clearInterval(autoPlayInterval);
+    });
+
+    // Resume auto-play on hover leave
+    carousel.addEventListener('mouseleave', () => {
+      if (isAutoPlayEnabled) {
+        autoPlayInterval = setInterval(() => {
+          moveSlide(1);
+        }, 3000);
+      }
+    });
+
+    // Update slide width immediately on resize
+    window.addEventListener('resize', () => {
+      updateSlideWidth();
+    });
+
+    // Initial setup
+    window.addEventListener('load', updateSlideWidth); // Ensures proper width on load
+
+    // Dot navigation setup
+    const dotContainer = document.querySelector('.carousel-dots');
+
+    const createDots = () => {
+      dotContainer.innerHTML = ''; // Clear existing dots
+      slides.forEach((slide, index) => {
+        const dot = document.createElement('div');
+        dot.classList.add('carousel-dot');
+        dot.addEventListener('click', () => moveToSlide(index + 1)); // Account for clones
+        dotContainer.appendChild(dot);
+      });
+    };
+
+    const updateDots = () => {
+      const dots = Array.from(dotContainer.children);
+      dots.forEach(dot => dot.classList.remove('active'));
+      dots[(currentIndex - 1 + totalSlides) % totalSlides].classList.add('active');
+    };
+
+    const moveToSlide = (index) => {
+      currentIndex = index;
+      carouselInner.style.transition = 'transform 0.5s ease-in-out';
+      carouselInner.style.transform = `translateX(-${currentIndex * slideWidth}px)`;
+      updateDots();
+    };
+
+    createDots(); // Create dots when the page loads
+    updateDots(); // Update active dot
+  </script>
+
     </div>
 
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
